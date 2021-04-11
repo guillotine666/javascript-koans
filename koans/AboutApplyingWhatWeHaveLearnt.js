@@ -109,8 +109,13 @@ describe("About Applying What We Have Learnt", function () {
     var ingredientCount = { "{ingredient name}": 0 };
 
     /* chain() together map(), flatten() and reduce() */
+    products.forEach((el) => {
+      el.ingredients.forEach((ingredient) => {
+        ingredientCount[ingredient] = (ingredientCount[ingredient] || 0) + 1;
+      });
+    });
 
-    expect(ingredientCount["mushrooms"]).toBe(FILL_ME_IN);
+    expect(ingredientCount["mushrooms"]).toBe(2);
   });
 
   /*********************************************************************************/
